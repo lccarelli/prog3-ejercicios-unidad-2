@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #fed7aa, #fdba74);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #1f2937;
+}
+
+main {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 { font-size: 2rem; margin-bottom: 1rem; color: #c2410c; }
+
+.aviso {
+    background: #fed7aa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #f97316;
+    text-align: left;
+    line-height: 1.6;
+}
+
+kbd {
+    background: #1f2937;
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}

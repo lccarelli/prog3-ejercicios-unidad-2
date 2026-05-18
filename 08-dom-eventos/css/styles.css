@@ -1,0 +1,258 @@
+/* ==========================================================================
+   ESTILOS — DOM y eventos (ej 08)
+   ==========================================================================
+   Esta página es interactiva (a diferencia de los ej 01-07), así que necesita
+   estilos más elaborados. Cada sección es una "demo" con un look uniforme.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --color-primario: #0891b2;       /* cyan */
+    --color-primario-oscuro: #0e7490;
+    --color-acento: #f59e0b;
+    --color-error: #ef4444;
+    --color-bg: #f0f9ff;
+    --color-card: #ffffff;
+    --color-borde: #cbd5e1;
+    --color-texto: #1f2937;
+    --color-texto-mutado: #64748b;
+    --radio: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+header {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    color: var(--color-texto-mutado);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Cada "demo" es una tarjeta blanca */
+.demo {
+    background: var(--color-card);
+    padding: 1.5rem;
+    border-radius: var(--radio);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.demo h2 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-bg);
+}
+
+/* Botones genéricos */
+button {
+    padding: 0.5rem 1rem;
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: var(--color-primario-oscuro);
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+/* "Caja de resultado" donde JS imprime cosas */
+.resultado {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--color-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primario);
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* === Demo 3: classList === */
+.caja-demo {
+    padding: 2rem;
+    background: var(--color-bg);
+    border-radius: var(--radio);
+    text-align: center;
+    margin: 1rem 0;
+    transition: all 0.3s;
+}
+
+/* Esta clase la agregan/quitan los botones de la demo 3 */
+.caja-demo.destacado {
+    background: var(--color-acento);
+    color: white;
+    font-weight: 700;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* === Demo 4: contador === */
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.contador button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#valor-contador {
+    font-size: 2.5rem;
+    font-weight: 700;
+    min-width: 80px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.hint {
+    text-align: center;
+    color: var(--color-texto-mutado);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* === Demo 5: filtro === */
+input[type="search"],
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
+}
+
+#lista-lenguajes,
+#lista-tareas {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+#lista-lenguajes li,
+#lista-tareas li {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    border-radius: 6px;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* === Demo 6: formulario === */
+form .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+}
+
+form label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+form button {
+    margin-top: 0.5rem;
+}
+
+/* === Demo 7: tareas === */
+.form-tarea {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-tarea input {
+    flex: 1;
+}
+
+#lista-tareas span {
+    cursor: pointer;
+    flex: 1;
+}
+
+#lista-tareas span.completada {
+    text-decoration: line-through;
+    color: var(--color-texto-mutado);
+}
+
+#lista-tareas .btn-quitar {
+    background: var(--color-error);
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+#lista-tareas .btn-quitar:hover {
+    background: #dc2626;
+}
+
+kbd {
+    background: #1f2937;
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .demo { padding: 1rem; }
+    .botones { flex-direction: column; }
+    .botones button { width: 100%; }
+}

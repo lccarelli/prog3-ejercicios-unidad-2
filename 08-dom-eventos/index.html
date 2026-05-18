@@ -1,0 +1,152 @@
+<!--
+==========================================================================
+EJERCICIO 08 — DOM y eventos
+==========================================================================
+APRENDIZAJES (en el HTML):
+
+A diferencia de los ejercicios 01-07 que eran "todo consola", este tiene
+UI REAL porque vamos a MANIPULARLA desde JS.
+
+Cada <section class="demo"> es una zona separada que demuestra un concepto.
+La JS está en js/main.js y manipula estas zonas.
+
+Cada elemento que JS va a tocar tiene un id o class identificable.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 08 — DOM y eventos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>DOM y eventos</h1>
+        <p class="subtitulo">
+            Interactuá con cada demo. Mirá también la consola (<kbd>F12</kbd>)
+            para ver mensajes que el JS imprime.
+        </p>
+    </header>
+
+    <main>
+
+        <!-- =================================================================
+             DEMO 1: Selección y lectura del DOM
+             ================================================================= -->
+        <section class="demo">
+            <h2>1. Selección y lectura</h2>
+            <p id="parrafo-demo">Este párrafo tiene <strong>contenido</strong>.</p>
+            <button id="btn-leer">Leer el párrafo</button>
+            <div id="resultado-lectura" class="resultado"></div>
+        </section>
+
+        <!-- =================================================================
+             DEMO 2: Modificación de contenido
+             ================================================================= -->
+        <section class="demo">
+            <h2>2. Modificar contenido</h2>
+            <p id="parrafo-modificable">Soy el contenido original.</p>
+            <div class="botones">
+                <button id="btn-text">Cambiar con textContent</button>
+                <button id="btn-html">Cambiar con innerHTML</button>
+                <button id="btn-reset">Reset</button>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DEMO 3: classList y estilos
+             ================================================================= -->
+        <section class="demo">
+            <h2>3. classList y estilos</h2>
+            <div id="caja-estilos" class="caja-demo">
+                Mirame mientras me modifican
+            </div>
+            <div class="botones">
+                <button id="btn-add-class">Agregar clase "destacado"</button>
+                <button id="btn-remove-class">Quitar clase</button>
+                <button id="btn-toggle-class">Toggle</button>
+                <button id="btn-style">Cambiar color con style</button>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             DEMO 4: Eventos del mouse y teclado
+             ================================================================= -->
+        <section class="demo">
+            <h2>4. Eventos: contador</h2>
+            <div class="contador">
+                <button id="btn-menos">−</button>
+                <span id="valor-contador">0</span>
+                <button id="btn-mas">+</button>
+            </div>
+            <p class="hint">También podés usar las flechas ← → del teclado cuando el contador está enfocado.</p>
+        </section>
+
+        <!-- =================================================================
+             DEMO 5: Filtro en vivo (similar a fruteria)
+             ================================================================= -->
+        <section class="demo">
+            <h2>5. Evento "input": filtro en vivo</h2>
+            <input type="search" id="filtro" placeholder="Filtrar lenguajes...">
+            <ul id="lista-lenguajes">
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>Ruby</li>
+                <li>Go</li>
+                <li>Rust</li>
+                <li>TypeScript</li>
+            </ul>
+        </section>
+
+        <!-- =================================================================
+             DEMO 6: Formulario con validación + submit
+             ================================================================= -->
+        <section class="demo">
+            <h2>6. Formulario: evento "submit"</h2>
+            <form id="form-contacto">
+                <div class="campo">
+                    <label for="nombre-form">Nombre</label>
+                    <input type="text" id="nombre-form" required>
+                </div>
+                <div class="campo">
+                    <label for="email-form">Email</label>
+                    <input type="email" id="email-form" required>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="form-resultado" class="resultado"></div>
+        </section>
+
+        <!-- =================================================================
+             DEMO 7: Crear y eliminar elementos dinámicamente
+             ================================================================= -->
+        <section class="demo">
+            <h2>7. Crear y eliminar elementos</h2>
+            <div class="form-tarea">
+                <input type="text" id="nueva-tarea" placeholder="Nueva tarea...">
+                <button id="btn-agregar-tarea">Agregar</button>
+            </div>
+            <ul id="lista-tareas"></ul>
+        </section>
+
+        <!-- =================================================================
+             DEMO 8: alert, prompt, confirm
+             ================================================================= -->
+        <section class="demo">
+            <h2>8. Ventanas del navegador</h2>
+            <div class="botones">
+                <button id="btn-alert">alert()</button>
+                <button id="btn-prompt">prompt()</button>
+                <button id="btn-confirm">confirm()</button>
+            </div>
+            <div id="resultado-ventana" class="resultado"></div>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
